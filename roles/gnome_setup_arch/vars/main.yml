@@ -1,0 +1,45 @@
+---
+pacman_gnome_minimal:
+  - gdm
+  - gnome-backgrounds # Add support to dark mode
+  - gnome-shell-extensions # Gnome Classic with Default Gnome deps
+  - gnome-menus
+  - gnome-control-center
+  - gnome-keyring # Required for saving passwords
+  - power-profiles-daemon
+  - gnome-color-manager
+  - system-config-printer
+  - gnome-remote-desktop
+  - nautilus
+  - gvfs
+  - gvfs-smb
+  - gvfs-mtp
+  - flatpak
+  - gnome-terminal
+  - dconf
+
+pacman_others:
+  - noto-fonts-cjk
+  - noto-fonts
+
+pacman_cups:
+  - cups
+  - ghostscript
+
+pacman_nvidia:
+  - nvidia
+  - lib32-nvidia-utils
+  - nvidia-utils
+  - mesa-utils
+
+pacman_collections:
+  - neovim
+  - neofetch
+  - htop
+  - fish
+  - wget
+  - tealdeer
+  - bind
+  - git
+  - misfortune
+  - powertop

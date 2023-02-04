@@ -1,0 +1,52 @@
+---
+# tasks file for dconf
+
+# Configure Mousepad
+
+## [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+## binding='<Super>space'
+## command='synapse'
+## name='synapse'
+
+- name: Enable tap-to-click
+  become: false
+  community.general.dconf:
+    key: "{{ gnome_touchpad_0 }}/tap-to-click"
+    value: "true"
+    state: present
+
+- name: Disable natural-scroll
+  become: false
+  community.general.dconf:
+    key: "{{ gnome_touchpad_0 }}/natural-scroll"
+    value: "false"
+    state: present
+
+
+# Create Shortcuts for Synapse
+
+## [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+## binding='<Super>space'
+## command='synapse'
+## name='synapse'
+
+- name: Assign bindings to Synapse
+  become: false
+  community.general.dconf:
+    key: "{{ keybind_0 }}/binding"
+    value: "<Super>space"
+    state: present
+
+- name: Assign command to Synapse
+  become: false
+  community.general.dconf:
+    key: "{{ keybind_0 }}/command"
+    value: "synapse"
+    state: present
+
+- name: Assign name to bind
+  become: false
+  community.general.dconf:
+    key: "{{ keybind_0 }}/name"
+    value: "Bind Synapse like Spotlight"
+    state: present

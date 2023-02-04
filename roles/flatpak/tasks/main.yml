@@ -1,0 +1,12 @@
+---
+# tasks file for flatpak
+- name: Install flatpaks
+  become: false
+  community.general.flatpak:
+    name: "{{flatpaks_apps}}"
+
+- name: LibreWolf Customizations
+  become: false
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/librewolf.overrides.cfg"
+    dest: ~/.var/app/io.gitlab.librewolf-community/.librewolf/librewolf.overrides.cfg

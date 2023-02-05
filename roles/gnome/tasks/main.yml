@@ -1,0 +1,19 @@
+---
+# tasks file for common
+- name: Synchronize Pacman packages
+  become: true
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install Packages
+  become: true
+  community.general.pacman:
+    name: "{{ pacman_gnome_minimal }}"
+
+- name: Enable gdm
+  become: true
+  ansible.builtin.systemd:
+    name: gdm
+    enabled: yes
+    masked: no

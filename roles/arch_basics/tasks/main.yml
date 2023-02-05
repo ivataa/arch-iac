@@ -1,5 +1,4 @@
 ---
-# tasks file for common
 - name: Synchronize Pacman packages
   become: true
   community.general.pacman:
@@ -10,17 +9,8 @@
   become: true
   community.general.pacman:
     name:
-      "{{ pacman_gnome_minimal
-        + pacman_others
-        + pacman_cups
+      "{{ pacman_cups
         + pacman_collections }}"
-
-- name: Enable gdm
-  become: true
-  ansible.builtin.systemd:
-    name: gdm
-    enabled: yes
-    masked: no
 
 - name: Enable CUPS
   become: true

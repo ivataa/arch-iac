@@ -1,0 +1,21 @@
+pacman_cups:
+  - cups
+  - ghostscript
+
+pacman_nvidia:
+  - nvidia
+  - lib32-nvidia-utils
+  - nvidia-utils
+  - mesa-utils
+
+pacman_collections:
+  - neovim
+  - neofetch
+  - htop
+  - fish
+  - wget
+  - tealdeer
+  - bind
+  - git
+  - misfortune
+  - powertop

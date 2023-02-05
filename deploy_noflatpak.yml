@@ -1,4 +1,6 @@
 - hosts: localhost
   gather_facts: no
   roles:
-    - role: gnome_setup_arch
+    - role: gnome
+    - role: arch_basics
+    - role: aur

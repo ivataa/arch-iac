@@ -17,8 +17,21 @@ Deployment
 
 Playbooks / Roles
 --------------
-- `deploy_standard.yml` install packages and flatpak apps
-- `deploy_noflatpak.yml` doesn't install flatpak apps. 
+> !! WARNING: NEVER EXECUTE THE PLAYBOOK AS ROOT !!
+### `deploy_standard.yml` 
+In short, this playbook:
+- Sets up gdm
+- Installs bloatless GNOME
+- Sets up CUPS
+- Sets up yay (Yet another Yogurt)
+- Installs [tools](roles/arch_basics/vars/main.yml), e.g tldr, fish, htop, nvim
+- Installs and sets up Miniconda3
+And sets up Flatpaks:
+- Install [apps](roles/flatpak/vars/main.yml)
+- Customize them (only librewolf for now)
+
+### `deploy_noflatpak.yml` 
+Same as `deploy_standard.yml` but it won't do the flatpak stuffs.
 
 TBD
 ---

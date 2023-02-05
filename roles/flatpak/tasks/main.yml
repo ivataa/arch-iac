@@ -8,5 +8,5 @@
 - name: LibreWolf Customizations
   become: false
   ansible.builtin.copy:
-    src: "{{ role_path }}/files/librewolf.overrides.cfg"
-    dest: ~/.var/app/io.gitlab.librewolf-community/.librewolf/librewolf.overrides.cfg
+    src: librewolf.overrides.cfg
+    dest: ~/.var/app/io.gitlab.librewolf-community/.librewolf/

@@ -14,6 +14,22 @@
     create: yes
     validate: 'visudo -cf %s'
 
+- name: Remove installed aur packages
+  become: true
+  community.general.pacman:
+    name:
+      - yay
+      - miniconda3
+    state: absent
+
+- name: Install yay
+  kewlfft.aur.aur:
+    name: yay
+    use: makepkg
+    state: present
+  become: yes
+  become_user: aur_builder
+
 - name: Install conda
   kewlfft.aur.aur:
     name: miniconda3

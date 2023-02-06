@@ -1,16 +1,12 @@
 ---
-- name: Synchronize Pacman packages
-  become: true
-  community.general.pacman:
-    update_cache: yes
-    upgrade: yes
-
 - name: Install Packages
   become: true
   community.general.pacman:
     name:
       "{{ pacman_cups
         + pacman_collections }}"
+    state: latest
+    update_cache: true
 
 - name: Enable CUPS
   become: true
@@ -18,17 +14,3 @@
     name: cups.socket
     enabled: yes
     masked: no
-
-- name: Clone yay
-  become: false
-  ansible.builtin.git:
-    repo: https://aur.archlinux.org/yay-bin.git
-    dest: "/tmp/ansible-yay-install"
-    update: true
-
-- name: Install yay
-  become: false
-  ansible.builtin.command:
-    chdir: "/tmp/ansible-yay-install"
-    cmd: "makepkg -sfi --noconfirm"
-    creates: /usr/bin/yay

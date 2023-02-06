@@ -1,7 +1,8 @@
 - hosts: localhost
   gather_facts: no
   roles:
-    - role: gnome
     - role: arch_basics
+    - role: gnome
     - role: aur
     - role: flatpak
+    - role: dconf_tweaks

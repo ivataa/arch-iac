@@ -1,15 +1,12 @@
 ---
 # tasks file for common
-- name: Synchronize Pacman packages
-  become: true
-  community.general.pacman:
-    update_cache: yes
-    upgrade: yes
 
-- name: Install Packages
+- name: Install GNOME
   become: true
   community.general.pacman:
     name: "{{ pacman_gnome_minimal }}"
+    state: present
+    update_cache: true
 
 - name: Enable gdm
   become: true

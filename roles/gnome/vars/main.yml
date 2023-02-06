@@ -19,3 +19,4 @@ pacman_gnome_minimal:
   - dconf
   - noto-fonts-cjk
   - noto-fonts
+  - python-psutil

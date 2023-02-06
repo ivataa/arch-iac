@@ -13,38 +13,42 @@
     value: "true"
     state: present
 
-- name: Disable natural-scroll
+- name: Disable natural-scroll for touchpad
   become: false
   community.general.dconf:
     key: "{{ gnome_touchpad_0 }}/natural-scroll"
     value: "false"
     state: present
 
-
-# Create Shortcuts for Synapse
-
-## [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-## binding='<Super>space'
-## command='synapse'
-## name='synapse'
-
-- name: Assign bindings to Synapse
-  become: false
-  community.general.dconf:
-    key: "{{ keybind_0 }}/binding"
-    value: "<Super>space"
-    state: present
-
-- name: Assign command to Synapse
-  become: false
-  community.general.dconf:
-    key: "{{ keybind_0 }}/command"
-    value: "synapse"
-    state: present
-
-- name: Assign name to bind
-  become: false
-  community.general.dconf:
-    key: "{{ keybind_0 }}/name"
-    value: "Bind Synapse like Spotlight"
-    state: present
+## - name: Reset Shortcut
+##   community.general.dconf:
+##     key: "{{ keybind }}"
+##     state: absent
+## 
+## # Create Shortcuts for Synapse
+## 
+## ## [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+## ## binding='<Super>space'
+## ## command='synapse'
+## ## name='synapse'
+## 
+## - name: Assign bindings to Synapse
+##   become: false
+##   community.general.dconf:
+##     key: "{{ keybind }}/custom0/binding"
+##     value: "['<Super>space']"
+##     state: present
+## 
+## - name: Assign command to Synapse
+##   become: false
+##   community.general.dconf:
+##     key: "{{ keybind_0 }}/custom0/command"
+##     value: "'synapse'"
+##     state: present
+## 
+## - name: Assign name to bind
+##   become: false
+##   community.general.dconf:
+##     key: "{{ keybind_0 }}/custom0/name"
+##     value: "'Bind Synapse like Spotlight'"
+##     state: present
